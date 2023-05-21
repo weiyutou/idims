@@ -1,0 +1,98 @@
+@keyframes zhuce{
+    0%{
+
+    }
+    100%{
+        background-color: black;
+        color: white;
+    }
+}
+@keyframes jianjian{
+    0%{
+        position: absolute;
+        width: 278px;
+        height: 0px;
+    }
+    25%{
+
+    }
+    50%{
+
+    }
+    75%{
+
+    }
+    100%{
+        position: absolute;
+        width: 278px;
+        height: 190px;
+    }
+}
+#btnbox:hover{
+    background-color: rgb(22, 22, 22);
+    color: white;
+}
+.weixindd{
+    width: 350px;
+    height: 350px;
+    background-color: white;
+    display: none;
+    background-image: url(../img/WEIXINDD.png);
+    background-size: cover;
+}
+.mobi:hover .weixindd{
+    display: block;
+}
+.mobi ul:hover{
+    transform: scale(1.01);
+    box-shadow: 5px 3px 10px 1px black; 
+}
+.faxian{
+    display: none;
+    width: 100px;
+    height: 350px;
+    background-color: black;
+}
+.fx:hover .faxian{
+    display: block;
+}
+.moreadmoretext:hover{
+    background-color: black;
+    color: white;
+}
+.readmoretext:hover{
+    background-color: black;
+    color: white;
+}
+.fenxiangdao:hover{
+    background-color: rgba(22,22,22,0.9);
+    background-image: url(../img/赞b.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.container .card:hover{
+    height: 420px;
+}
+.container .card:hover .content{
+    visibility: visible;
+    opacity: 1;
+    margin-top: -40px;
+    transition-delay: .3s;
+}
+.bofangbtn:hover{
+    background-image: url(../icon/icon_bofang.png);
+    background-color: rgba(22,22,22,0.8);
+}
+.nicepic .shuai:hover .zhezhao{
+    display: block;
+    animation-name: jianjian;
+    animation-duration: 0.2s;
+    animation-timing-function: initial;
+}
+.pos:hover{
+    text-decoration-line: underline;
+    text-decoration-color: white;
+}
+#denglu:hover{
+    background-color: rgba(22,22,22,0.1);
+}
