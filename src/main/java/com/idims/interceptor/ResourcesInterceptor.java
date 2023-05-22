@@ -27,14 +27,15 @@ public class ResourcesInterceptor extends HandlerInterceptorAdapter {
             if ("经理".equals(user.getRole())) {
                 return true;
             }
-            //如果是普通用户
-            else if (!"经理".equals(user.getRole())) {
-                for (String url : ignoreUrl) {
-                    //访问的资源不是管理员权限的资源，放行
-                    if (uri.indexOf(url) >= 0) {
-                        return true;
-                    }
-                }
+            //如果是业务员
+            else if ("业务员".equals(user.getRole())) {
+                return true;
+            }
+            else if ("调度员".equals(user.getRole())) {
+                return true;
+            }
+            else {
+                return false;
             }
         }
         //对用户登录的相关请求，放行

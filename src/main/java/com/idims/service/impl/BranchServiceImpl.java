@@ -5,7 +5,6 @@ import com.github.pagehelper.PageHelper;
 import com.idims.domain.Branch;
 import com.idims.mapper.BranchMapper;
 import com.idims.service.BranchService;
-import entity.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

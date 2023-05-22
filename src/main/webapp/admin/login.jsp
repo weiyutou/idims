@@ -10,28 +10,28 @@
 </head>
 <body>
 <div class="loginmain">
-    <div class="py-container">
-        <h4 class="manage-title">知音快递-上市两年半</h4>
+    <div class="">
+        <h4>知音快递-上市两年半</h4>
         <div class="loginform">
-            <ul class="sui-nav nav-tabs tab-wraped">
+            <ul class="">
                 <li class="active">
                     <h3>登录</h3>
                 </li>
             </ul>
-            <div class="tab-content tab-wraped">
+            <div class="">
                 <%--登录提示信息--%>
                 <span style="color: red">${msg}</span>
-                <div id="profile" class="tab-pane  active">
-                    <form id="loginform" class="sui-form" action="${pageContext.request.contextPath}/login"
+                <div id="profile" class="">
+                    <form id="loginform" class="" action="${pageContext.request.contextPath}/login"
                           method="post">
-                        <div class="input-prepend"><span class="add-on loginname">邮箱</span>
+                        <div class=""><span class="add-on loginname"></span>
                             <input type="text" placeholder="请输入邮箱" class="span2 input-xfat" name="email">
                         </div>
-                        <div class="input-prepend"><span class="add-on loginpwd">密码</span>
+                        <div class=""><span class="add-on loginpwd"></span>
                             <input type="text" placeholder="请输入密码" class="span2 input-xfat" name="password">
                         </div>
                         <div class="logined">
-                            <a class="sui-btn btn-block btn-xlarge btn-danger"
+                            <a class=""
                                href='javascript:document:loginform.submit();' target="_self">登&nbsp;&nbsp;录</a>
                         </div>
                     </form>

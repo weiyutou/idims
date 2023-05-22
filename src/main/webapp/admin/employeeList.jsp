@@ -61,7 +61,7 @@
   </ul>
 </nav>
 <h1>Employee List</h1>
-<span onclick="addEmployee()">添加</span>
+<span onclick="addEmployee()" style="background-color: #0d6aad;padding: 5px;margin-left: 15px;cursor: pointer;color: whitesmoke">添加</span>
 <table>
   <tr>
     <th>员工编号</th>
@@ -91,7 +91,7 @@
 </table>
 <script>
   function addEmployee() {
-    
+
   }
 </script>
 </body>
