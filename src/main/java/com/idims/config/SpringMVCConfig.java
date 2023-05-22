@@ -13,7 +13,7 @@ import java.util.List;
 @ComponentScan({"com.idims.controller"})
 /*@Import({MyWebMvcConfig.class})*/
 @EnableWebMvc
-public class SpringMvcConfig  implements WebMvcConfigurer {
+public class SpringMVCConfig implements WebMvcConfigurer {
   @Value("#{'${ignoreUrl}'.split(',')}")
     private List<String> ignoreUrl;
 

@@ -1,7 +1,6 @@
 package com.idims.service.impl;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
+import javax.annotation.Resource;
 import com.idims.domain.Branch;
 import com.idims.mapper.BranchMapper;
 import com.idims.service.BranchService;
@@ -16,7 +15,7 @@ import java.util.List;
  */
 @Service
 public class BranchServiceImpl implements BranchService {
-    @Autowired
+    @Resource
     BranchMapper branchMapper;
 
     @Override

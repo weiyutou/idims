@@ -14,7 +14,7 @@ public class ServletContainersInitConfig extends AbstractAnnotationConfigDispatc
     初始化Spring MVC容器
      */
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{SpringMvcConfig.class};
+        return new Class[]{SpringMVCConfig.class};
     }
     //配置DispatcherServlet的映射路径
     protected String[] getServletMappings() {
