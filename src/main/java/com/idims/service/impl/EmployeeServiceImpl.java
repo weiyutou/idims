@@ -10,20 +10,41 @@ import java.util.List;
 
 /**
  * @author coli
- * @date 2023/5/21 下午 11:16
+ * @date 2023/5/28 上午 12:18
  */
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
-    EmployeeMapper employeeMapper;
+    private EmployeeMapper employeeMapper;
 
     @Override
-    public List<Employee> getAllEmployee() {
+    public List<Employee> getAllEmployees() {
         return employeeMapper.getAllEmployees();
     }
 
     @Override
-    public Integer editEmployee() {
-        return null;
+    public Employee getEmployeeById(Integer employeeId) {
+        return employeeMapper.getEmployeeById(employeeId);
     }
+
+    @Override
+    public void addEmployee(Employee employee) {
+        employeeMapper.addEmployee(employee);
+    }
+
+    @Override
+    public void updateEmployee(Employee employee) {
+        employeeMapper.updateEmployee(employee);
+    }
+
+    @Override
+    public void deleteEmployee(Integer employeeId) {
+        employeeMapper.deleteEmployee(employeeId);
+    }
+
+    @Override
+    public List<Employee> searchEmployeesByName(String name) {
+        return employeeMapper.searchEmployeesByName(name);
+    }
+
 }

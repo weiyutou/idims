@@ -11,51 +11,44 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class UserController {
-    @RequestMapping("/toMainPage")
+    @RequestMapping("/main")
     public String  toMainPage(){
-        return "main";
+        return "404";
     }
     //注入userService
     @Autowired
     private UserService userService;
-    /*
-   用户登录
-    */
+
+    /*登录*/
     @RequestMapping("/login")
     public String login(User user, HttpServletRequest request){
         try {
             User u = userService.login(user);
-            /*
-            用户账号和密码是否查询出用户信息
-                是：将用户信息存入Session，并跳转到后台首页
-                否：Request域中添加提示信息，并转发到登录页面
-             */
             if(u!=null){
                 request.getSession().setAttribute("USER_SESSION",u);
-                return "redirect:/admin/main.jsp";
+                return "redirect:/pages/main.jsp";
             }
             request.setAttribute("msg","用户名或密码错误");
-            return  "forward:/admin/login.jsp";
+            return  "forward:/pages/login.jsp";
         }catch(Exception e){
             e.printStackTrace();
             request.setAttribute("msg","系统错误");
-            return  "forward:/admin/login.jsp";
+            return  "forward:/pages/login.jsp";
         }
     }
-    /*
-    注销登录
-     */
+
+    /*注销*/
     @RequestMapping("/logout")
     public String logout( HttpServletRequest request){
         try {
             HttpSession session = request.getSession();
             //销毁Session
             session.invalidate();
-            return  "forward:/admin/login.jsp";
+            return  "forward:/pages/login.jsp";
         }catch(Exception e){
             e.printStackTrace();
             request.setAttribute("msg","系统错误");
-            return  "forward:/admin/login.jsp";
+            return  "forward:/pages/login.jsp";
         }
     }
 

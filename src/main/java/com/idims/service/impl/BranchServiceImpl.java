@@ -1,6 +1,5 @@
 package com.idims.service.impl;
 
-import javax.annotation.Resource;
 import com.idims.domain.Branch;
 import com.idims.mapper.BranchMapper;
 import com.idims.service.BranchService;
@@ -11,21 +10,34 @@ import java.util.List;
 
 /**
  * @author coli
- * @date 2023/5/18 下午 5:18
+ * @date 2023/5/28 下午 4:32
  */
 @Service
 public class BranchServiceImpl implements BranchService {
-    @Resource
+    @Autowired
     BranchMapper branchMapper;
-
     @Override
-    public List<Branch> getAllBranch() {
-        List<Branch> list = branchMapper.selectBranch();
-        return list;
+    public Branch getBranchById(int branchId) {
+        return branchMapper.getBranchById(branchId);
     }
 
     @Override
-    public Integer editBranch(Branch branch) {
-        return null;
+    public List<Branch> getAllBranches() {
+        return branchMapper.getAllBranches();
+    }
+
+    @Override
+    public void addBranch(Branch branch) {
+
+    }
+
+    @Override
+    public void updateBranch(Branch branch) {
+
+    }
+
+    @Override
+    public void deleteBranch(int branchId) {
+
     }
 }

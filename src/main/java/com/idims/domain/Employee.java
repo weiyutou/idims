@@ -1,23 +1,19 @@
 package com.idims.domain;
 
-import java.math.BigDecimal;
-
 /**
  * @author coli
- * @date 2023/5/17 下午 6:38
+ * @date 2023/5/28 上午 12:09
  */
 public class Employee {
     private Integer employeeId;
     private String name;
     private String position;
-    private BigDecimal salary;
-    private String phone;
-    private String address;
+    private double salary;
+    private String phoneNumber;
+    private String homeAddress;
     private Integer branchId;
-    private Branch branch; // 关联关系
 
-    // Getters and Setters
-
+    // Getter和Setter方法
 
     public Integer getEmployeeId() {
         return employeeId;
@@ -43,28 +39,28 @@ public class Employee {
         this.position = position;
     }
 
-    public BigDecimal getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(BigDecimal salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getAddress() {
-        return address;
+    public String getHomeAddress() {
+        return homeAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
     }
 
     public Integer getBranchId() {
@@ -75,11 +71,16 @@ public class Employee {
         this.branchId = branchId;
     }
 
-    public Branch getBranch() {
-        return branch;
-    }
-
-    public void setBranch(Branch branch) {
-        this.branch = branch;
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", name='" + name + '\'' +
+                ", position='" + position + '\'' +
+                ", salary=" + salary +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", homeAddress='" + homeAddress + '\'' +
+                ", branchId=" + branchId +
+                '}';
     }
 }

@@ -44,7 +44,7 @@ public class ResourcesInterceptor extends HandlerInterceptorAdapter {
         }
         //其他情况都直接跳转到登录页面
         request.setAttribute("msg", "您还没有登录，请先登录！");
-        request.getRequestDispatcher("/admin/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
         return false;
     }
 }

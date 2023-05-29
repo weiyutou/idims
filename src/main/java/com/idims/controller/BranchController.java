@@ -1,32 +1,30 @@
 package com.idims.controller;
 
 import com.idims.domain.Branch;
+import com.idims.domain.Employee;
 import com.idims.service.BranchService;
+import com.idims.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 /**
  * @author coli
- * @date 2023/5/18 下午 5:33
+ * @date 2023/5/28 上午 12:24
  */
 @Controller
-@RequestMapping("/branch")
+@RequestMapping("/branches")
 public class BranchController {
     @Autowired
-    private BranchService branchService;
+    BranchService branchService;
 
-    @RequestMapping("/selectBranch")
-    public ModelAndView getBooks() {
-        List<Branch> branchs = branchService.getAllBranch();
-        ModelAndView modelAndView = new ModelAndView("main");
-        modelAndView.addObject("branchs", branchs);
-        return modelAndView;
+    @RequestMapping("/list")
+    public String getAllBranch(Model model){
+        List<Branch> branches = branchService.getAllBranches();
+        model.addAttribute("branches", branches);
+        return "branchList";
     }
-
-
 }

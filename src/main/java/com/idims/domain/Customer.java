@@ -2,18 +2,16 @@ package com.idims.domain;
 
 /**
  * @author coli
- * @date 2023/5/17 下午 6:41
+ * @date 2023/5/28 下午 6:14
  */
 public class Customer {
-    private int customerId;
+    private Integer customerId;
     private String companyName;
     private String address;
     private String province;
-    private String contactPerson;
+    private String contactName;
     private String contactPhone;
     private String bankAccount;
-
-    // Getters and Setters
 
     @Override
     public String toString() {
@@ -22,17 +20,17 @@ public class Customer {
                 ", companyName='" + companyName + '\'' +
                 ", address='" + address + '\'' +
                 ", province='" + province + '\'' +
-                ", contactPerson='" + contactPerson + '\'' +
+                ", contactName='" + contactName + '\'' +
                 ", contactPhone='" + contactPhone + '\'' +
                 ", bankAccount='" + bankAccount + '\'' +
                 '}';
     }
 
-    public int getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
     }
 
@@ -60,12 +58,12 @@ public class Customer {
         this.province = province;
     }
 
-    public String getContactPerson() {
-        return contactPerson;
+    public String getContactName() {
+        return contactName;
     }
 
-    public void setContactPerson(String contactPerson) {
-        this.contactPerson = contactPerson;
+    public void setContactName(String contactName) {
+        this.contactName = contactName;
     }
 
     public String getContactPhone() {

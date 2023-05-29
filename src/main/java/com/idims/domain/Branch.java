@@ -2,17 +2,25 @@ package com.idims.domain;
 
 /**
  * @author coli
- * @date 2023/5/17 下午 6:36
+ * @date 2023/5/28 下午 4:30
  */
 public class Branch {
     private int branchId;
-    private String branchName;
-    private String managerName;
-    private int managerId;
+    private String name;
+    private String manager;
     private String officePhone;
     private String address;
 
-    // Getters and Setters
+    @Override
+    public String toString() {
+        return "Branch{" +
+                "branchId=" + branchId +
+                ", name='" + name + '\'' +
+                ", manager='" + manager + '\'' +
+                ", officePhone='" + officePhone + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 
     public int getBranchId() {
         return branchId;
@@ -22,28 +30,20 @@ public class Branch {
         this.branchId = branchId;
     }
 
-    public String getBranchName() {
-        return branchName;
+    public String getName() {
+        return name;
     }
 
-    public void setBranchName(String branchName) {
-        this.branchName = branchName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getManagerName() {
-        return managerName;
+    public String getManager() {
+        return manager;
     }
 
-    public void setManagerName(String managerName) {
-        this.managerName = managerName;
-    }
-
-    public int getManagerId() {
-        return managerId;
-    }
-
-    public void setManagerId(int managerId) {
-        this.managerId = managerId;
+    public void setManager(String manager) {
+        this.manager = manager;
     }
 
     public String getOfficePhone() {
@@ -60,17 +60,5 @@ public class Branch {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    @Override
-    public String toString() {
-        return "Branch{" +
-                "branchId=" + branchId +
-                ", branchName='" + branchName + '\'' +
-                ", managerName='" + managerName + '\'' +
-                ", managerId=" + managerId +
-                ", officePhone='" + officePhone + '\'' +
-                ", address='" + address + '\'' +
-                '}';
     }
 }

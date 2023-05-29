@@ -1,20 +1,22 @@
 package com.idims.service;
 
 import com.idims.domain.Branch;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
-
+import org.springframework.stereotype.Service;
 
 /**
  * @author coli
- * @date 2023/5/17 下午 6:59
+ * @date 2023/5/28 下午 4:32
  */
 @Service
 public interface BranchService {
-    // 查询分公司信息
-    public List<Branch> getAllBranch();
-    //编辑分公司信息
-    Integer editBranch(Branch branch);
+    Branch getBranchById(int branchId);
+
+    List<Branch> getAllBranches();
+
+    void addBranch(Branch branch);
+
+    void updateBranch(Branch branch);
+
+    void deleteBranch(int branchId);
 }

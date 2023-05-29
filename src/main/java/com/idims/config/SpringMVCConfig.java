@@ -28,7 +28,7 @@ public class SpringMVCConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor( resourcesInterceptor()).addPathPatterns("/**").excludePathPatterns("/css/**","/js/**","/img/**");
+        registry.addInterceptor( resourcesInterceptor()).addPathPatterns("/**").excludePathPatterns("/static/css/**","/static/js/**","/static/img/**");
     }
 
     /*
@@ -42,7 +42,7 @@ public class SpringMVCConfig implements WebMvcConfigurer {
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
-        registry.jsp("/admin/",".jsp");
+        registry.jsp("/pages/",".jsp");
     }
 
 }
