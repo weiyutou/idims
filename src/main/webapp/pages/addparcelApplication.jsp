@@ -79,6 +79,7 @@
               <div class="col-sm-10">
                 <input type="text" class="form-control" name="deliveryAddress" placeholder="收货地址">
                 <input type="text" class="form-control" name="status" placeholder="状态" value="0" hidden>
+<%--                <input type="date" class="form-control" name="date" placeholder="日期" value="2023-06-06 20:16:32" hidden>--%>
               </div>
             </div>
             <div class="form-row">

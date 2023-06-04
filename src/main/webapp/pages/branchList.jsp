@@ -39,21 +39,36 @@
         <th>分公司编号</th>
         <th>分公司名</th>
         <th>分公司经理</th>
+        <th>任职时间</th>
         <th>办公电话</th>
         <th>分公司地址</th>
+        <th>操作</th>
       </tr>
       <c:forEach items="${branches}" var="branche">
         <tr>
           <td>${branche.branchId}</td>
           <td>${branche.name}</td>
           <td>${branche.manager}</td>
+          <td>${branche.date}</td>
           <td>${branche.officePhone}</td>
           <td>${branche.address}</td>
+          <td>
+            <c:if test="${USER_SESSION.role =='经理'}">
+              <button onclick="editBranche(${branche.branchId})">修改</button>
+            </c:if>
+          </td>
         </tr>
       </c:forEach>
     </table>
   </div>
 </div>
 </body>
+<script>
+  function editBranche(branchId) {
+    // console.log("拿到了id"+branchId);
+    // 根据唯一标识，跳转到修改页面，并将员工ID作为参数传递
+    location.href = "${pageContext.request.contextPath}/branches/editBranche?branchId=" + branchId;
+  }
+</script>
 </html>
 

@@ -20,6 +20,9 @@
   <script src="${pageContext.request.contextPath}/static/js/pagination.js"></script>
   <script src="${pageContext.request.contextPath}/static/js/my.js"></script>
   <style>
+    body{
+      font-size: 13px;
+    }
     h3{
       text-align: center;
     }
@@ -33,7 +36,7 @@
 </head>
 <body>
 <div class="row" style="overflow: hidden">
-  <div class="col-md-10" style="left: 17%;margin-top: 5%;overflow: hidden">
+  <div class="col-md-10" style="left: 15%;margin-top: 5%;overflow: hidden">
     <h3>快件申请表承运安排</h3>
     <table id="dataList" class="table table-bordered table-striped table-hover dataTable text-center">
       <tr>
@@ -48,6 +51,9 @@
         <th>收件人电话</th>
         <th>收货地址</th>
         <th>状态</th>
+        <th>送达时间</th>
+        <th>受理业务员</th>
+        <th>承运业务员</th>
         <th>操作</th>
       </tr>
       <c:forEach items="${parcelApplications}" var="parcelApplication">
@@ -66,6 +72,19 @@
             <c:if test="${parcelApplication.status == 0}">待受理</c:if>
             <c:if test="${parcelApplication.status == 1}">待承运</c:if>
             <c:if test="${parcelApplication.status == 2}">已送达</c:if>
+          </td>
+            <%--送达时间--%>
+          <td>
+            <c:if test="${parcelApplication.status == 2}">${parcelApplication.date}</c:if>
+          </td>
+            <%--受理业务员--%>
+          <td>
+            <c:if test="${parcelApplication.status == 1}">赵六</c:if>
+            <c:if test="${parcelApplication.status == 2}">赵六</c:if>
+          </td>
+            <%--承运业务员--%>
+          <td>
+            <c:if test="${parcelApplication.status == 2}">赵六</c:if>
           </td>
           <td>
             <c:if test="${parcelApplication.status == 0}">待受理</c:if>

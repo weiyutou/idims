@@ -33,12 +33,14 @@
     <style>
         body{
             overflow: hidden;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 <div class="row" style="overflow: hidden">
-    <div class="col-md-10" style="left: 17%;margin-top: 5%;overflow: hidden">
+    <a href="${pageContext.request.contextPath}/parcel-applications/myy">aaaaa</a>
+    <div class="col-md-10" style="left: 13%;margin-top: 5%;overflow: hidden">
         <h3>我的快件申请单信息</h3>
         <table id="dataList" class="table table-bordered table-striped table-hover dataTable text-center">
             <tr>
@@ -53,6 +55,9 @@
                 <th>收件人电话</th>
                 <th>收货地址</th>
                 <th>状态</th>
+                <th>送达时间</th>
+                <th>受理业务员</th>
+                <th>承运业务员</th>
             </tr>
             <c:forEach items="${parcelApplications}" var="parcelApplication">
                 <tr>
@@ -70,6 +75,19 @@
                         <c:if test="${parcelApplication.status == 0}">待受理</c:if>
                         <c:if test="${parcelApplication.status == 1}">已受理</c:if>
                         <c:if test="${parcelApplication.status == 2}">已送达</c:if>
+                    </td>
+                        <%--送达时间--%>
+                    <td>
+                        <c:if test="${parcelApplication.status == 2}">${parcelApplication.date}</c:if>
+                    </td>
+                        <%--受理业务员--%>
+                    <td>
+                        <c:if test="${parcelApplication.status == 1}">赵六</c:if>
+                        <c:if test="${parcelApplication.status == 2}">赵六</c:if>
+                    </td>
+                        <%--承运业务员--%>
+                    <td>
+                        <c:if test="${parcelApplication.status == 2}">赵六</c:if>
                     </td>
                 </tr>
             </c:forEach>

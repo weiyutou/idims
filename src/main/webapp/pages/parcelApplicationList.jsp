@@ -34,20 +34,33 @@
     body{
       overflow: hidden;
     }
+    body{
+      font-size: 13px;
+    }
+    button,form{
+      float: left;
+      float: left;
+      margin-right: 5px;
+    }
+    .bbbleft{
+      margin-left: 5px;
+    }
+    label{
+      float: left;
+    }
   </style>
 </head>
 <body>
 <div class="row" style="overflow: hidden">
-  <div class="col-md-10" style="left: 17%;margin-top: 5%;overflow: hidden">
+  <div class="col-md-10" style="left: 15%;margin-top: 5%;overflow: hidden">
     <h3>快件申请表信息</h3>
-    <button class="btn btn-gradient-info" onclick="addCus()">新增</button>
-
-    <form class="form-inline" action="${pageContext.request.contextPath}/emp/search" method="post">
+    <form class="form-inline" action="${pageContext.request.contextPath}/parcel-applications/search" method="post">
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-      <input type="text" style="pointer-events: none;background-color: #f0f0f0;cursor: wait"
-             class="form-control m-b-20 m-r-15" name="name" placeholder="搜索订单">
-      <button type="submit" class="btn btn-gradient-success m-b-20">Submit</button>
+      <input type="text"
+             class="form-control m-b-20 m-r-15" name="application_id" placeholder="搜索快件申请号">
+      <button type="submit" class="btn btn-gradient-success m-b-20">搜索</button>
     </form>
+    <button class="btn btn-gradient-info bbbleft" onclick="addCus()">新增</button>
     <table id="dataList" class="table table-bordered table-striped table-hover dataTable text-center">
       <tr>
         <th>快件申请号</th>
@@ -61,6 +74,9 @@
         <th>收件人电话</th>
         <th>收货地址</th>
         <th>状态</th>
+        <th>送达时间</th>
+        <th>受理业务员</th>
+        <th>承运业务员</th>
       </tr>
       <c:forEach items="${parcelApplications}" var="parcelApplication">
         <tr>
@@ -79,17 +95,30 @@
             <c:if test="${parcelApplication.status == 1}">已受理</c:if>
             <c:if test="${parcelApplication.status == 2}">已送达</c:if>
           </td>
+            <%--送达时间--%>
+          <td>
+            <c:if test="${parcelApplication.status == 2}">${parcelApplication.date}</c:if>
+          </td>
+            <%--受理业务员--%>
+          <td>
+            <c:if test="${parcelApplication.status == 1}">赵六</c:if>
+            <c:if test="${parcelApplication.status == 2}">赵六</c:if>
+          </td>
+            <%--承运业务员--%>
+          <td>
+            <c:if test="${parcelApplication.status == 2}">赵六</c:if>
+          </td>
         </tr>
       </c:forEach>
     </table>
 
     <div>
       <form id="searchForm" action="${pageContext.request.contextPath}/parcel-applications/list" method="get">
-        <label>当前页:${pageRequestDTO.page + 1}</label>
+        <label style="line-height: 28px">当前页:${pageRequestDTO.page + 1}&nbsp;&nbsp;</label>
         <input type="hidden" id="pageInput" name="page" value="${pageRequestDTO.page}">
         <input type="hidden" name="size" value="8">
-        <button type="button" onclick="goToPage(${pageRequestDTO.page - 1})">Previous</button>
-        <button type="button" onclick="goToPage(${pageRequestDTO.page + 1})">Next</button>
+        <button type="button" onclick="goToPage(${pageRequestDTO.page - 1})">上一页</button>
+        <button type="button" onclick="goToPage(${pageRequestDTO.page + 1})">下一页</button>
       </form>
     </div>
   </div>

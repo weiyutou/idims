@@ -55,8 +55,13 @@ public class ParcelApplicationServiceImpl implements ParcelApplicationService {
     }
 
     @Override
-    public List<ParcelApplication> getParcelApplicationsByCustomerId(Long customerId) {
-        return parcelApplicationMapper.findByCustomerId(customerId);
+    public List<ParcelApplication> searchParcelApplicationById(String name) {
+        return parcelApplicationMapper.searchApplicationId(name);
+    }
+
+    @Override
+    public List<ParcelApplication> getParcelApplicationsByCustomerId() {
+        return parcelApplicationMapper.findByCustomerId();
     }
 
     @Override

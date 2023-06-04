@@ -28,20 +28,31 @@
     body{
       overflow: hidden;
     }
+    button,form{
+      float: left;
+      float: left;
+      margin-right: 5px;
+    }
+    .bbbleft{
+      margin-left: 5px;
+
+    }
+    label{
+      float: left;
+    }
   </style>
 </head>
 <body>
 <div class="row" style="overflow: hidden">
   <div class="col-md-9" style="left: 18%;margin-top: 5%;overflow: hidden">
     <h3>客户信息</h3>
-    <button class="btn btn-gradient-info" onclick="addCus()">新增</button>
-
-    <form class="form-inline" action="${pageContext.request.contextPath}/emp/search" method="post">
+    <form class="form-inline" action="${pageContext.request.contextPath}/customers/search" method="post">
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-      <input type="text" style="pointer-events: none;background-color: #f0f0f0;cursor: wait"
-             class="form-control m-b-20 m-r-15" name="name" placeholder="搜索客户">
-      <button type="submit" class="btn btn-gradient-success m-b-20">Submit</button>
+      <input type="text"
+             class="form-control m-b-20 m-r-15" name="companyName" placeholder="搜索客户">
+      <button type="submit" class="btn btn-gradient-success m-b-20">搜索</button>
     </form>
+    <button class="btn btn-gradient-info bbbleft" onclick="addCus()">新增</button>
     <table id="dataList" class="table table-bordered table-striped table-hover dataTable text-center">
       <tr>
         <th>客户编号</th>
@@ -64,8 +75,8 @@
           <td>${customer.bankAccount}</td>
           <td>
             <c:if test="${USER_SESSION.role =='经理'}">
-              <button onclick="editCus(${customer.customerId})">修改</button>
-              <button onclick="deleteCus(${customer.customerId})">删除</button>
+<%--              <button onclick="editCus(${customer.customerId})">修改</button>--%>
+              <button class="btn btn-info btn-sm" onclick="deleteCus(${customer.customerId})">删除</button>
             </c:if>
           </td>
         </tr>
@@ -89,7 +100,7 @@
       xhr.send("customerId=" + customerId);
     }
   }
-  function editEmployee(customerId) {
+  function editCus(customerId) {
     console.log("拿到了id"+customerId);
     // 根据唯一标识，跳转到修改页面，并将员工ID作为参数传递
     location.href = "${pageContext.request.contextPath}/customers/editCus?customerId=" + customerId;

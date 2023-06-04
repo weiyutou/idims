@@ -5,6 +5,7 @@ package com.idims.mapper;
  * @date 2023/5/28 下午 4:38
  */
 import com.idims.domain.Branch;
+import com.idims.domain.Employee;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -13,7 +14,14 @@ import java.util.List;
 public interface BranchMapper {
     /*通过id查找分公司*/
     @Select("SELECT * FROM branch WHERE branch_id = #{branchId}")
-    Branch getBranchById(int branchId);
+    @Results(id = "branchssMap",value = {
+            @Result(id = true, column = "branch_id", property = "branchId"),
+            @Result(column = "name", property = "name"),
+            @Result(column = "manager", property = "manager"),
+            @Result(column = "office_phone", property = "officePhone"),
+            @Result(column = "address", property = "address")
+    })
+    Branch getBranchById(Integer branchId);
 
     /*查询所有分公司*/
     @Select("SELECT * FROM branch")
@@ -21,6 +29,7 @@ public interface BranchMapper {
             @Result(id = true, column = "branch_id", property = "branchId"),
             @Result(column = "name", property = "name"),
             @Result(column = "manager", property = "manager"),
+            @Result(column = "date", property = "date"),
             @Result(column = "office_phone", property = "officePhone"),
             @Result(column = "address", property = "address")
     })
@@ -33,7 +42,7 @@ public interface BranchMapper {
     void addBranch(Branch branch);
 
     /*修改分公司信息*/
-    @Update("UPDATE branch SET name = #{name}, manager = #{manager}, " +
+    @Update("UPDATE branch SET name = #{name}, manager = #{manager}, date = #{date}," +
             "office_phone = #{officePhone}, address = #{address} WHERE branch_id = #{branchId}")
     void updateBranch(Branch branch);
 

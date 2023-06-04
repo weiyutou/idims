@@ -39,7 +39,7 @@ public interface CustomerMapper {
     })
     List<Customer> getAllCustomers();
 
-    @Select("SELECT * FROM customer WHERE name LIKE CONCAT('%', #{name}, '%')")
+    @Select("SELECT * FROM customer WHERE company_name LIKE CONCAT('%', #{name}, '%')")
     @Results(id = "customersMap",value = {
             @Result(id = true,column = "customer_id",property = "customerId"),
             @Result(column = "company_name",property = "companyName"),

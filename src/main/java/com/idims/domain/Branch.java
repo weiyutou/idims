@@ -8,8 +8,17 @@ public class Branch {
     private int branchId;
     private String name;
     private String manager;
+    private String date;
     private String officePhone;
     private String address;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     @Override
     public String toString() {
@@ -17,6 +26,7 @@ public class Branch {
                 "branchId=" + branchId +
                 ", name='" + name + '\'' +
                 ", manager='" + manager + '\'' +
+                ", date='" + date + '\'' +
                 ", officePhone='" + officePhone + '\'' +
                 ", address='" + address + '\'' +
                 '}';

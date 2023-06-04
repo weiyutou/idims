@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrap.css">
@@ -38,9 +39,15 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label control-label">岗位</label>
+                            <label class="col-sm-2 col-form-label control-label">
+                                岗位
+                            </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="position" value="${employee.position}" placeholder="岗位">
+                                <select class="form-control" name="position">
+                                    <option value="业务员">业务员</option>
+                                    <option value="调度员">调度员</option>
+                                    <option value="经理">经理</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -59,9 +66,21 @@
                             <label class="col-sm-2 col-form-label control-label">地址</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="homeAddress" value="${employee.homeAddress}" placeholder="地址">
-                                <input type="text" class="form-control" name="branchId" value="${employee.branchId}" placeholder="公司" hidden>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label control-label">
+                                分公司
+                            </label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="branchId">
+                                    <option value="1">上海分公司</option>
+                                    <option value="2">北京分公司</option>
+                                    <option value="3">南宁分公司</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-row">
                             <div class="col-sm-6">
                                 <div class="text-sm-right">

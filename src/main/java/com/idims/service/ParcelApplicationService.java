@@ -1,5 +1,6 @@
 package com.idims.service;
 
+import com.idims.domain.Customer;
 import com.idims.domain.ParcelApplication;
 import entity.PageRequestDTO;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public interface ParcelApplicationService {
     /*添加订单，客户下订单用的*/
     void addParcelApplication(ParcelApplication parcelApplication);
 
-    List<ParcelApplication> getParcelApplicationsByCustomerId(Long customerId);
+    List<ParcelApplication> getParcelApplicationsByCustomerId();
     List<ParcelApplication> getParcelApplicationsById();
 
     /*更新订单数据，业务员受理、承运用的*/
@@ -27,4 +28,6 @@ public interface ParcelApplicationService {
     void deleteParcelApplication(int applicationId);
 
     public int updateStatus(int applicationId, int newStatus);
+
+    List<ParcelApplication> searchParcelApplicationById(String name);
 }

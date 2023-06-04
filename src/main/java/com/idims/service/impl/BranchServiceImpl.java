@@ -17,7 +17,7 @@ public class BranchServiceImpl implements BranchService {
     @Autowired
     BranchMapper branchMapper;
     @Override
-    public Branch getBranchById(int branchId) {
+    public Branch getBranchById(Integer branchId) {
         return branchMapper.getBranchById(branchId);
     }
 
@@ -33,7 +33,7 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public void updateBranch(Branch branch) {
-
+        branchMapper.updateBranch(branch);
     }
 
     @Override

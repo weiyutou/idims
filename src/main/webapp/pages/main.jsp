@@ -220,7 +220,13 @@
                       <img src="${pageContext.request.contextPath}/static/picture/thumb-13.png" alt="">
                     </div>
                     <div class="info">
-                      <span class="title text-semibold">${USER_SESSION.username}</span>
+                      <span class="title text-semibold">
+                        <c:if test="${USER_SESSION.username == 1234}">张三</c:if>
+                        <c:if test="${USER_SESSION.username == 123}">赵六</c:if>
+                        <c:if test="${USER_SESSION.username == 12}">李四</c:if>
+                        <c:if test="${USER_SESSION.username == 11}">钱九</c:if>
+                        <c:if test="${USER_SESSION.username == 1}">客户5</c:if>
+                      </span>
                       <span class="sub-title">${USER_SESSION.role}</span>
                     </div>
                   </li>
@@ -341,7 +347,7 @@
                 <a href="${pageContext.request.contextPath}/pages/addparcelApplication.jsp" target="iframe">我要寄件</a>
               </li>
               <li>
-                  <a href="${pageContext.request.contextPath}/parcel-applications/mypar" target="iframe">我的寄件</a>
+                <a href="${pageContext.request.contextPath}/parcel-applications/myys" target="iframe">我的寄件</a>
               </li>
             </ul>
           </li>

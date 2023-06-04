@@ -1,5 +1,6 @@
 package com.idims.controller;
 
+import com.idims.domain.Customer;
 import com.idims.domain.Employee;
 import com.idims.domain.ParcelApplication;
 import com.idims.mapper.ParcelApplicationMapper;
@@ -56,6 +57,8 @@ public class ParcelApplicationController {
     @RequestMapping(value = "/updateStatus1", method = RequestMethod.POST)
     @ResponseBody
     public String updateStatus1(@RequestParam("applicationId") int applicationId) {
+        // 受理业务员
+
         // 更新订单状态为已受理
         int rowsUpdated = parcelApplicationService.updateStatus(applicationId, 1);
         if (rowsUpdated == 1) {
@@ -68,6 +71,8 @@ public class ParcelApplicationController {
     @RequestMapping(value = "/updateStatus2", method = RequestMethod.POST)
     @ResponseBody
     public String updateStatus2(@RequestParam("applicationId") int applicationId) {
+        // 承运业务员
+
         // 更新订单状态为已受理
         int rowsUpdated = parcelApplicationService.updateStatus(applicationId, 2);
         if (rowsUpdated == 1) {
@@ -78,22 +83,31 @@ public class ParcelApplicationController {
     }
 
     @PostMapping("/addPar")
-    public String addPar(ParcelApplication parcelApplication) {
-        parcelApplicationService.addParcelApplication(parcelApplication);
-        return "redirect:/parcel-applications/mypar";
+    public String addEmployees(ParcelApplication p) {
+        parcelApplicationService.addParcelApplication(p);
+        System.out.println(p);
+        return "redirect:/parcel-applications/myys";
     }
 
-    @PostMapping("/selectById")
+    @RequestMapping("/selectById")
     public String searchEmployees(@RequestParam("customerId") Long customerId, Model model) {
-        List<ParcelApplication> parcelApplications = parcelApplicationService.getParcelApplicationsByCustomerId(customerId);
+        List<ParcelApplication> parcelApplications = parcelApplicationService.getParcelApplicationsByCustomerId();
         model.addAttribute("parcelApplications", parcelApplications);
         return "parcelApplicationList"; // 返回给前端的视图名称，可以根据自己的需求修改
     }
 
-    @RequestMapping("/mypar")
+    @RequestMapping("/myys")
     public String mypar(Model model) {
         List<ParcelApplication> parcelApplications = parcelApplicationService.getParcelApplicationsById();
+        System.out.println("我的订单如下"+parcelApplications);
         model.addAttribute("parcelApplications", parcelApplications);
         return "myy";
+    }
+
+    @PostMapping("/search")
+    public String searchCus(@RequestParam("application_id") String name, Model model) {
+        List<ParcelApplication> parcelApplications = parcelApplicationService.searchParcelApplicationById(name);
+        model.addAttribute("parcelApplications", parcelApplications);
+        return "parcelApplicationList";
     }
 }

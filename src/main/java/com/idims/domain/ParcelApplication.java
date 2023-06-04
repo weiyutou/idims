@@ -15,6 +15,7 @@ public class ParcelApplication {
     private String recipient;
     private String recipientPhone;
     private String deliveryAddress;
+    private String date;
 
     public String getStatus() {
         return status;
@@ -106,6 +107,14 @@ public class ParcelApplication {
         this.deliveryAddress = deliveryAddress;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return "ParcelApplication{" +
@@ -119,6 +128,7 @@ public class ParcelApplication {
                 ", recipient='" + recipient + '\'' +
                 ", recipientPhone='" + recipientPhone + '\'' +
                 ", deliveryAddress='" + deliveryAddress + '\'' +
+                ", date='" + date + '\'' +
                 ", status='" + status + '\'' +
                 '}';
     }

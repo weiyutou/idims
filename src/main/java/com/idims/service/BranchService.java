@@ -2,6 +2,8 @@ package com.idims.service;
 
 import com.idims.domain.Branch;
 import java.util.List;
+
+import com.idims.domain.Employee;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface BranchService {
-    Branch getBranchById(int branchId);
+    Branch getBranchById(Integer branchId);
 
     List<Branch> getAllBranches();
 

@@ -20,11 +20,30 @@ import java.util.List;
 public class BranchController {
     @Autowired
     BranchService branchService;
+    @Autowired
+    EmployeeService employeeService;
 
     @RequestMapping("/list")
     public String getAllBranch(Model model){
         List<Branch> branches = branchService.getAllBranches();
         model.addAttribute("branches", branches);
         return "branchList";
+    }
+
+    @GetMapping("/editBranche")
+    public String editEmployee(@RequestParam("branchId") Integer branchId, Model model) {
+        List<Employee> employees = employeeService.getAllEmployees();
+        model.addAttribute("employees", employees);
+        // 根据员工ID查询公司信息，并将其传递给前端页面
+        Branch branches = branchService.getBranchById(branchId);
+        model.addAttribute("branches", branches);
+        return "editBranch"; // 返回修改页面的视图名称
+    }
+
+
+    @PostMapping("/updateBranch")
+    public String updateBranch(@ModelAttribute("branchId") Branch branch) {
+        branchService.updateBranch(branch);
+        return "redirect:/branches/list";
     }
 }

@@ -34,6 +34,9 @@ public class ResourcesInterceptor extends HandlerInterceptorAdapter {
             else if ("调度员".equals(user.getRole())) {
                 return true;
             }
+            else if ("客户".equals(user.getRole())) {
+                return true;
+            }
             else {
                 return false;
             }
